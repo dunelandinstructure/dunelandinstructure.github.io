@@ -82,6 +82,7 @@ body {
 }
 body{
   background-color: black;
+  
 }
 #hiddenList{
   text-decoration: none;
@@ -92,4 +93,18 @@ li{
 }
 a{
   text-decoration: none;
+  color: blue;
+}
+p{
+  color: blue;
+}
+#list{
+  
+  font-size: 24px;
+  text-color: blue;
+  
+}
+#searchbar{
+  color: blue;
+  background-color: black;
 }
