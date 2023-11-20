@@ -13,7 +13,7 @@ body {
 .topnav a {
   float: left;
   display: block;
-  color: black;
+  color: blue;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -71,4 +71,25 @@ body {
   .topnav input[type=text] {
     border: 1px solid blue;  
   }
+}
+#searchInput{
+  color: blue;
+  background-color: black;
+  border-color: blue!important;
+}
+#ha{
+  border-color: blue!important;
+}
+body{
+  background-color: black;
+}
+#hiddenList{
+  text-decoration: none;
+  text-decoration: none;
+}
+li{
+  text-decoration: none;
+}
+a{
+  text-decoration: none;
 }
