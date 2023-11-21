@@ -26,8 +26,8 @@ body {
 }
 
 .topnav a.active {
-  background-color: blue !important;
-  color: black !important;
+  background-color: blue ;
+  color: black ;
 }
 
 .topnav .search-container {
@@ -69,13 +69,13 @@ body {
     padding: 14px;
   }
   .topnav input[type=text] {
-    border: 1px solid blue !important;  
+    border: 1px solid blue ;  
   }
 }
 #searchInput{
-  color: blue !important;
+  color: blue ;
   background-color: black;
-  border-color: blue!important;
+  border-color: blue;
 }
 #ha{
   border-color: blue!important;
