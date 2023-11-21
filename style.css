@@ -27,7 +27,7 @@ body {
 
 .topnav a.active {
   background-color: blue !important;
-  color: black;
+  color: black !important;
 }
 
 .topnav .search-container {
