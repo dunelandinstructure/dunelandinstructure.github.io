@@ -13,7 +13,7 @@ body {
 .topnav a {
   float: left;
   display: block;
-  color: blue;
+  color: blue !important;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -26,7 +26,7 @@ body {
 }
 
 .topnav a.active {
-  background-color: blue;
+  background-color: blue !important;
   color: black;
 }
 
@@ -69,11 +69,11 @@ body {
     padding: 14px;
   }
   .topnav input[type=text] {
-    border: 1px solid blue;  
+    border: 1px solid blue !important;  
   }
 }
 #searchInput{
-  color: blue;
+  color: blue !important;
   background-color: black;
   border-color: blue!important;
 }
@@ -96,7 +96,7 @@ a{
   color: blue;
 }
 p{
-  color: blue;
+  color: blue !important;
 }
 #list{
   
@@ -105,6 +105,6 @@ p{
   
 }
 #searchbar{
-  color: blue;
+  color: blue !important;
   background-color: black;
 }
