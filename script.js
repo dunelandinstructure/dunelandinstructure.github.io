@@ -3,7 +3,7 @@ function search_animal() {
   let input = document.getElementById('searchbar').value 
   input=input.toLowerCase(); 
   var iframe = document.getElementById("animals");
-  var x = iframe.contentWindow.document.getElementsById("animals");
+  var x = iframe.contentWindow.document.getElementsByClassName("animals");
   let xold = document.getElementsByClassName('animals'); 
 
   for (i = 0; i < x.length; i++) { 
