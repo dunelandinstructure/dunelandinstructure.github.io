@@ -1,20 +1,20 @@
   #gameSection {
-    width: 100%;
-    height: 100vh;
+    width: 100vw;
+    height: 110vh;
     padding: 0px;
   }
   
   #gameFrame {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     padding: 51px 0px 0px 0px;
     margin: 0px;
   }
   
   @media (min-width: 992px) {
     #gameFrame {
-      width: 100%;
-      height: 100%;
+      width: 100vw;
+      height: 100vh;
       padding: 0px 0px 0px 0px;
       margin: 0px;
     }
