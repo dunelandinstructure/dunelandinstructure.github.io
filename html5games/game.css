@@ -14,7 +14,7 @@
   @media (min-width: 992px) {
     #gameFrame {
       width: 100vw;
-      height: 92.5vh;
+      height: calc(100% - 14px);
       padding: 0px 0px 0px 0px;
       margin: 0px;
     }
