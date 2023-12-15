@@ -29,8 +29,62 @@
     </div>
   </div>
 
-  <ul id='list'>
+  <!DOCTYPE html>
+  <html>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  * {box-sizing: border-box}
+
+  /* Set height of body and the document to 100% */
+  body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial;
+  }
+
+  /* Style tab links */
+  .tablink {
+    background-color: #555;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 25%;
+  }
+
+  .tablink:hover {
+    background-color: #777;
+  }
+
+  /* Style the tab content (and add height:100% for full page content) */
+  .tabcontent {
+    display: none;
+    padding: 35px 0px;
+    height: 100%;
+  }
+
+  #Home {background-color: black;}
+  #News {background-color: black;}
+  #Contact {background-color: black;}
+  #About {background-color: black;}
+  </style>
+  </head>
+  <body>
+
+  <button class="tablink" onclick="openPage('Home', this, 'blue')" id="defaultOpen">All</button>
+  <button class="tablink" onclick="openPage('News', this, 'blue')">Sports</button>
+  <button class="tablink" onclick="openPage('Contact', this, 'blue')">Shooter</button>
+  <button class="tablink" onclick="openPage('About', this, 'blue')">Driving</button>
+
+  <div id="Home" class="tabcontent">
+    <ul id='list'>
       <li class="animals"><a style="color: red;" href="https://ultraviolet-iceman0483.github.io/static/tiw/hvtrs8%2F-nmw%2Cge%2Frlcy-rmbnoz-aoppmrctkol%2F7369-rmbnoz">Roblox</a></li> 
+      <li class="animals"><a style="color: red;" href="https://ultraviolet-iceman0483.github.io/static/tiw/hvtrs8%2F-nmw%2Cge%2Frlcy-kktia%2Fgcmgs-7%3B9%3B%2Fqtwm%60lg-eu%7Bs">Stumble Guys</a></li> 
+      <li class="animals"><a style="color: red;" href="https://ultraviolet-iceman0483.github.io/static/tiw/hvtrs8%2F-nmw%2Cge%2Frlcy-pqymnkx%2Fsvufims-4454%2Fpoakgt%2Flgaeug">Rocket League</a></li>
       <li class="animals"><a href="/html5games/cluster-rush.html">Cluster Rush</a></li> 
       <li class="animals"><a href="/html5games/retro-bowl.html">Retro Bowl</a></li>
       <li class="animals"><a href="/html5games/retro-c.html">Retro Bowl College</a></li> 
@@ -179,8 +233,62 @@
       <li class="animals"><a href=""></a></li>
       <li class="animals"><a href=""></a></li>
       <li class="animals"><a href=""></a></li>
-  </ul> 
-  <div id="animals">
+    </ul> 
+    <div id="animals">
+
+  </div>
+  </div>
+  <div id="News" class="tabcontent">
+    <ul id='list'>
+      <li class="animals"><a href="/html5games/retro-bowl.html">Retro Bowl</a></li>
+      <li class="animals"><a href="/html5games/retro-c.html">Retro Bowl College</a></li>
+      <li class="animals"><a href="/html5games/gamehub/edgesurf.html">Edge Surf</a></li>
+      <li class="animals"><a href="/html5games/gamehub/volley.html">Volley Random</a></li>
+      
+
+    </ul>
+    <div id="animals">
+    </div>
+  </div>
+
+  <div id="Contact" class="tabcontent">
+    
+  </div>
+
+  <div id="About" class="tabcontent">
+    <ul id='list'>
+    <li class="animals"><a href="/html5games/drive-mad.html">Drive Mad</a></li> 
+    <li class="animals"><a href="/html5games/monster.html">Monster Tracks</a></li>
+    <li class="animals"><a href="/html5games/cluster-rush.html">Cluster Rush</a></li>
+    <li class="animals"><a href="/html5games/gamehub/moto3xm2.html">Moto X3M 2</a></li>
+    <li class="animals"><a href="/html5games/gamehub/racer.html">Racer</a></li>
+    </ul>
+    <div id="animals">
+    </div>
+  </div>
+
+  <script>
+  function openPage(pageName,elmnt,color) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].style.backgroundColor = "";
+    }
+    document.getElementById(pageName).style.display = "block";
+    elmnt.style.backgroundColor = color;
+  }
+
+  // Get the element with id="defaultOpen" and click on it
+  document.getElementById("defaultOpen").click();
+  </script>
+
+  </body>
+  </html> 
+
   <script src="script.js">
   </script>
 
