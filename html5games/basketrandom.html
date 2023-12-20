@@ -9,7 +9,9 @@
 <link rel="manifest" href="/manifest.json">
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="/style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<script src="/fullscreen.js"></script>
+<link rel="stylesheet" href="/fullscreen.css">
 <style>
 #play-container{
  width: 100vw;
@@ -35,7 +37,9 @@ section{
     <a class="active" href="/games.html">Games</a>
     <a href="/tv.html">TV</a>
     <a href="/proxy.html">Proxys</a>
-    <a href="/other.html">Other</a
+    <a href="/other.html">Other</a>
+    <button onclick="openFullscreen();"><i class="fas fa-expand fa-5x"></i></button>
+
   </div>
  <section id="gameSection">
   <iframe frameborder="0" id="gameFrame" srcdoc="
