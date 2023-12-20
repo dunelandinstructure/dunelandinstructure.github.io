@@ -3,6 +3,7 @@ button{
     border-radius: 5px;
     height: 60px;
     border-color: black;
+    border: none;
     }
     i{
     color: blue;
