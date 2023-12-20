@@ -1,4 +1,4 @@
-var elem = document.getElementById("myvideo");
+var elem = document.getElementById("gameFrame");
 function openFullscreen() {
   if (elem.requestFullscreen) {
     elem.requestFullscreen();
