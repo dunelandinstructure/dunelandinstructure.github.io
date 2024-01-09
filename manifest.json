@@ -1,6 +1,6 @@
 {
     "display_override": ["window-control-overlay", "minimal-ui"],
     "display": "standalone",
-    "start_url": "/"
-    "title": "Duff Stuff",
+    "start_url": "/",
+    "title": "Duff Stuff"
   }
