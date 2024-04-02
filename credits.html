@@ -7,11 +7,17 @@
   <link rel="apple-touch-icon" sizes="192x192" href="IMG_1486.png"> 
   <link rel="manifest" href="manifest.json">
   <meta name="mobile-web-app-capable" content="yes">
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-
-</style>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    h1 {
+      text-align: center;
+    }
+    /* Added style for blue color */
+    #ownerText {
+      color: blue;
+    }
+  </style>
 </head>
 <body>
   <div class="topnav">
@@ -22,22 +28,15 @@
   </div>
 
   <ul id='list'> 
-    <style>
-        h1{
-            text-align: center;
-        }
-    </style>
-      <h1>
-        Owner: Liam
-        
-        Thanks to people on github for games and proxies!
-      </h1>  
+    <h1>
+      <span id="ownerText">Owner: Aidan</span>
+      <span id="ownerText">Thanks to people on github for games and proxies!</span>
+      <span id="ownerText">Special thanks to Liam for the original duffman34.github.io!</span>
+    </h1>  
   </ul> 
   <div id="animals">
-  <script src="script.js">
-  </script>
-
-<p style="color: blue;">If you want to use this as an app, click share square and add to home screen.</p>
-
+    <script src="script.js"></script>
+    <p style="color: blue;">If you want to use this as an app, click share square and add to home screen.</p>
+  </div>
 </body>
 </html>
