@@ -74,14 +74,27 @@
 </div>
 
 <script>
+    // Check if authentication state is stored in localStorage
+    var isAuthenticated = localStorage.getItem("authenticated");
+    if (isAuthenticated === "true") {
+        // If already authenticated, show the content and top navigation
+        document.getElementById("content").style.display = "block";
+        document.getElementById("myTopnav").style.display = "block";
+    } else {
+        // If not authenticated, show the passcode form
+        document.getElementById("passcode-form").style.display = "flex";
+    }
+
     function authenticate() {
         var passcode = document.getElementById("passcode").value;
         // Replace "your_passcode" with your actual passcode
-        if (passcode === "letmein") {
-            // If passcode is correct, show the content and hide the passcode form
+        if (passcode === "your_passcode") {
+            // If passcode is correct, show the content and top navigation
             document.getElementById("passcode-form").style.display = "none";
             document.getElementById("content").style.display = "block";
             document.getElementById("myTopnav").style.display = "block";
+            // Store authentication state in localStorage
+            localStorage.setItem("authenticated", "true");
         } else {
             // If passcode is incorrect, show an error message
             alert("Incorrect passcode. Please try again.");
