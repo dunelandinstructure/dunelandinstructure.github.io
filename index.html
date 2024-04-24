@@ -10,25 +10,44 @@
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-#passcode-form, #content {
+#passcode-form {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.passcode-input {
+    width: 300px;
+    padding: 10px;
+    font-size: 18px;
+}
+
+#content {
+    display: none;
+}
+
+#myTopnav {
     display: none;
 }
 </style>
 </head>
 <body>
-  <script src="nav.js"></script>
-  <div class="topnav" id="myTopnav">
+<div class="topnav" id="myTopnav">
   <a class="active" href="index.html">Home</a>
   <a href="games.html" id="games-link">Games</a>
   <a href="tv.html" id="tv-link">TV</a>
   <a href="proxy.html" id="proxy-link">Proxys</a>
   <a href="other.html" id="other-link">Other</a>
   <div id="ha" class="search-container">
-    
-      <input id="searchbar" onkeyup="search_animal()" type="text"
-        name="search" placeholder="Search Site Pages">
+      <input id="searchbar" onkeyup="search_animal()" type="text" name="search" placeholder="Search Site Pages">
       <button type="submit" ><i class="fa fa-search"></i></button>
-    
   </div>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
@@ -37,29 +56,32 @@
 
 <!-- Passcode Authentication Form -->
 <div id="passcode-form">
-    <h2>Enter Passcode:</h2>
-    <input type="password" id="passcode">
-    <button onclick="authenticate()">Submit</button>
+    <div>
+        <h2>Enter Passcode:</h2>
+        <input type="password" id="passcode" class="passcode-input">
+        <button onclick="authenticate()">Submit</button>
+    </div>
 </div>
 
 <!-- Content -->
 <div id="content">
-  <ul id='list'> 
-      <li class="animals"><a href="games.html" id="games-link">Games</a></li>
-      <li class="animals"><a href="tv.html" id="tv-link">TV</a></li>
-      <li class="animals"><a href="proxy.html" id="proxy-link">Proxys</a></li> 
-      <li class="animals"><a href="other.html" id="other-link">Other</a></li>  
-  </ul> 
+    <ul id='list'> 
+        <li class="animals"><a href="games.html" id="games-link">Games</a></li>
+        <li class="animals"><a href="tv.html" id="tv-link">TV</a></li>
+        <li class="animals"><a href="proxy.html" id="proxy-link">Proxys</a></li> 
+        <li class="animals"><a href="other.html" id="other-link">Other</a></li>  
+    </ul> 
 </div>
 
 <script>
     function authenticate() {
         var passcode = document.getElementById("passcode").value;
         // Replace "your_passcode" with your actual passcode
-        if (passcode === "your_passcode") {
-            // If passcode is correct, show the content
+        if (passcode === "letmein") {
+            // If passcode is correct, show the content and hide the passcode form
             document.getElementById("passcode-form").style.display = "none";
             document.getElementById("content").style.display = "block";
+            document.getElementById("myTopnav").style.display = "block";
         } else {
             // If passcode is incorrect, show an error message
             alert("Incorrect passcode. Please try again.");
