@@ -58,7 +58,7 @@
 <div id="passcode-form">
     <div>
         <h2>Enter Passcode:</h2>
-        <input type="password" id="passcode" class="passcode-input">
+        <input type="password" id="passcode" class="passcode-input" onkeydown="if(event.keyCode==13){authenticate()}">
         <button onclick="authenticate()">Submit</button>
     </div>
 </div>
@@ -74,12 +74,17 @@
 </div>
 
 <script>
+    // Hide the navigation bar initially
+    document.getElementById("myTopnav").style.display = "none";
+
     // Check if authentication state is stored in localStorage
     var isAuthenticated = localStorage.getItem("authenticated");
     if (isAuthenticated === "true") {
         // If already authenticated, show the content and top navigation
         document.getElementById("content").style.display = "block";
         document.getElementById("myTopnav").style.display = "block";
+        // Hide the passcode form
+        document.getElementById("passcode-form").style.display = "none";
     } else {
         // If not authenticated, show the passcode form
         document.getElementById("passcode-form").style.display = "flex";
@@ -90,11 +95,12 @@
         // Replace "your_passcode" with your actual passcode
         if (passcode === "your_passcode") {
             // If passcode is correct, show the content and top navigation
-            document.getElementById("passcode-form").style.display = "none";
             document.getElementById("content").style.display = "block";
             document.getElementById("myTopnav").style.display = "block";
             // Store authentication state in localStorage
             localStorage.setItem("authenticated", "true");
+            // Hide the passcode form
+            document.getElementById("passcode-form").style.display = "none";
         } else {
             // If passcode is incorrect, show an error message
             alert("Incorrect passcode. Please try again.");
