@@ -55,7 +55,7 @@
 </div>
 
 <!-- Passcode Authentication Form -->
-<div id="passcode-form">
+<div id="passcode-form" style="display: flex;">
     <div>
         <h2>Enter Passcode:</h2>
         <input type="password" id="passcode" class="passcode-input" onkeydown="if(event.keyCode==13){authenticate()}">
@@ -77,16 +77,8 @@
     // Hide the navigation bar initially
     document.getElementById("myTopnav").style.display = "none";
 
-    // Check if authentication state is stored in localStorage
-    var isAuthenticated = localStorage.getItem("authenticated");
-    if (isAuthenticated === "true") {
-        // If already authenticated, show the content and top navigation
-        document.getElementById("content").style.display = "block";
-        document.getElementById("myTopnav").style.display = "block";
-    } else {
-        // If not authenticated, show the passcode form
-        document.getElementById("passcode-form").style.display = "flex";
-    }
+    // Show the passcode form
+    document.getElementById("passcode-form").style.display = "flex";
 
     function authenticate() {
         var passcode = document.getElementById("passcode").value;
