@@ -32,17 +32,39 @@
     <i class="fa fa-bars"></i>
   </a>
 </div>
-  <ul id='list'> 
-      <li class="animals"><a href="games.html">Games</a></li>
-      <li class="animals"><a href="tv.html">TV</a></li>
-      <li class="animals"><a href="proxy.html">Proxys</a></li> 
-      <li class="animals"><a href="other.html">Other</a></li>  
-  </ul> 
-  <div id="animals">
-  <script src="script.js">
-  </script>
 
+<!-- Passcode Authentication Form -->
+<div id="passcode-form">
+    <h2>Enter Passcode:</h2>
+    <input type="password" id="passcode">
+    <button onclick="authenticate()">Submit</button>
+</div>
 
+<ul id='list'> 
+    <li class="animals"><a href="games.html">Games</a></li>
+    <li class="animals"><a href="tv.html">TV</a></li>
+    <li class="animals"><a href="proxy.html">Proxys</a></li> 
+    <li class="animals"><a href="other.html">Other</a></li>  
+</ul> 
+
+<div id="animals">
+  <script src="script.js"></script>
+</div>
+
+<script>
+    function authenticate() {
+        var passcode = document.getElementById("passcode").value;
+        // Replace "your_passcode" with your actual passcode
+        if (passcode === "your_passcode") {
+            // If passcode is correct, show the content
+            document.getElementById("passcode-form").style.display = "none";
+            document.getElementById("animals").style.display = "block";
+        } else {
+            // If passcode is incorrect, show an error message
+            alert("Incorrect passcode. Please try again.");
+        }
+    }
+</script>
 
 </body>
 </html>
