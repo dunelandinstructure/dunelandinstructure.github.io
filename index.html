@@ -55,7 +55,7 @@
 </div>
 
 <!-- Passcode Authentication Form -->
-<div id="passcode-form">
+<div id="passcode-form" style="display: none;">
     <div>
         <h2>Enter Passcode:</h2>
         <input type="password" id="passcode" class="passcode-input" onkeydown="if(event.keyCode==13){authenticate()}">
@@ -77,26 +77,26 @@
     // Hide the navigation bar initially
     document.getElementById("myTopnav").style.display = "none";
 
-    // Check if authentication state is stored in localStorage
-    var isAuthenticated = localStorage.getItem("authenticated");
-    if (isAuthenticated === "true") {
-        // If already authenticated, show the content and top navigation
+    // Check if passcode has been entered previously
+    var passcodeEntered = localStorage.getItem("passcodeEntered");
+    if (passcodeEntered === "true") {
+        // Passcode has been entered previously, show the content and top navigation
         document.getElementById("content").style.display = "block";
         document.getElementById("myTopnav").style.display = "block";
     } else {
-        // If not authenticated, show the passcode form
+        // Passcode has not been entered previously, show the passcode form
         document.getElementById("passcode-form").style.display = "flex";
     }
 
     function authenticate() {
         var passcode = document.getElementById("passcode").value;
         // Replace "your_passcode" with your actual passcode
-        if (passcode === "your_passcode") {
+        if (passcode === "LetMeIn") {
             // If passcode is correct, show the content and top navigation
             document.getElementById("content").style.display = "block";
             document.getElementById("myTopnav").style.display = "block";
-            // Store authentication state in localStorage
-            localStorage.setItem("authenticated", "true");
+            // Store that passcode has been entered
+            localStorage.setItem("passcodeEntered", "true");
             // Hide the passcode form
             document.getElementById("passcode-form").style.display = "none";
         } else {
