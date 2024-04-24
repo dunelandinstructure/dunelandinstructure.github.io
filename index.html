@@ -10,17 +10,19 @@
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-
+#passcode-form, #content {
+    display: none;
+}
 </style>
 </head>
 <body>
   <script src="nav.js"></script>
   <div class="topnav" id="myTopnav">
   <a class="active" href="index.html">Home</a>
-  <a href="games.html">Games</a>
-  <a href="tv.html">TV</a>
-  <a href="proxy.html">Proxys</a>
-  <a href="other.html">Other</a>
+  <a href="games.html" id="games-link">Games</a>
+  <a href="tv.html" id="tv-link">TV</a>
+  <a href="proxy.html" id="proxy-link">Proxys</a>
+  <a href="other.html" id="other-link">Other</a>
   <div id="ha" class="search-container">
     
       <input id="searchbar" onkeyup="search_animal()" type="text"
@@ -40,15 +42,14 @@
     <button onclick="authenticate()">Submit</button>
 </div>
 
-<ul id='list'> 
-    <li class="animals"><a href="games.html">Games</a></li>
-    <li class="animals"><a href="tv.html">TV</a></li>
-    <li class="animals"><a href="proxy.html">Proxys</a></li> 
-    <li class="animals"><a href="other.html">Other</a></li>  
-</ul> 
-
-<div id="animals">
-  <script src="script.js"></script>
+<!-- Content -->
+<div id="content">
+  <ul id='list'> 
+      <li class="animals"><a href="games.html" id="games-link">Games</a></li>
+      <li class="animals"><a href="tv.html" id="tv-link">TV</a></li>
+      <li class="animals"><a href="proxy.html" id="proxy-link">Proxys</a></li> 
+      <li class="animals"><a href="other.html" id="other-link">Other</a></li>  
+  </ul> 
 </div>
 
 <script>
@@ -58,7 +59,7 @@
         if (passcode === "your_passcode") {
             // If passcode is correct, show the content
             document.getElementById("passcode-form").style.display = "none";
-            document.getElementById("animals").style.display = "block";
+            document.getElementById("content").style.display = "block";
         } else {
             // If passcode is incorrect, show an error message
             alert("Incorrect passcode. Please try again.");
