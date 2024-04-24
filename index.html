@@ -90,7 +90,6 @@
 
     function authenticate() {
         var passcode = document.getElementById("passcode").value;
-        // Replace "your_passcode" with your actual passcode
         if (passcode === "LetMeIn") {
             // If passcode is correct, show the content and top navigation
             document.getElementById("content").style.display = "block";
@@ -104,6 +103,17 @@
             alert("Incorrect passcode. Please try again.");
         }
     }
+
+    // Cache the authentication status throughout the website
+    window.addEventListener('storage', function(event) {
+        if (event.key === "passcodeEntered" && event.newValue === "true") {
+            // Passcode has been entered, show the content and top navigation
+            document.getElementById("content").style.display = "block";
+            document.getElementById("myTopnav").style.display = "block";
+            // Hide the passcode form if it's present
+            document.getElementById("passcode-form").style.display = "none";
+        }
+    });
 </script>
 
 </body>
