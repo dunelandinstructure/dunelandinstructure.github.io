@@ -55,7 +55,7 @@
 </div>
 
 <!-- Passcode Authentication Form -->
-<div id="passcode-form" style="display: none;">
+<div id="passcode-form">
     <div>
         <h2>Enter Passcode:</h2>
         <input type="password" id="passcode" class="passcode-input" onkeydown="if(event.keyCode==13){authenticate()}">
@@ -83,9 +83,8 @@
         // Passcode has been entered previously, show the content and top navigation
         document.getElementById("content").style.display = "block";
         document.getElementById("myTopnav").style.display = "block";
-    } else {
-        // Passcode has not been entered previously, show the passcode form
-        document.getElementById("passcode-form").style.display = "flex";
+        // Hide the passcode form
+        document.getElementById("passcode-form").style.display = "none";
     }
 
     function authenticate() {
