@@ -58,7 +58,7 @@
 <div id="passcode-form">
     <div>
         <h2>Enter Passcode:</h2>
-        <input type="password" id="passcode" class="passcode-input" onkeydown="if(event.keyCode==13){authenticate()}">
+        <input type="password" id="passcode" class="passcode-input" onkeyup="updatePasscode(this.value)" autofocus>
         <button onclick="authenticate()">Submit</button>
     </div>
 </div>
@@ -87,12 +87,17 @@
         document.getElementById("passcode-form").style.display = "none";
     }
 
+    // Update passcode display as the user types
+    function updatePasscode(value) {
+        document.getElementById("passcode-display").textContent = value;
+    }
+
     function authenticate() {
         var passcode = document.getElementById("passcode").value;
         // Encode the user's input using a custom encoding function
         var encodedPasscode = encodePasscode(passcode);
         // Encoded password to match against (you can replace this with any encoded password)
-        var encodedPassword = "ǰĵǵǸǵǽǴ";
+        var encodedPassword = "Vjou";
         
         if (encodedPasscode === encodedPassword) {
             // If passcode is correct, show the content and top navigation
