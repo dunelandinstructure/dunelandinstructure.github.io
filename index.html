@@ -58,7 +58,7 @@
 <div id="passcode-form">
     <div>
         <h2>Enter Passcode:</h2>
-        <input type="password" id="passcode" class="passcode-input" onkeyup="updatePasscode(this.value)" autofocus>
+        <input type="password" id="passcode" class="passcode-input" onkeydown="if(event.keyCode==13){authenticate()}">
         <button onclick="authenticate()">Submit</button>
     </div>
 </div>
@@ -87,17 +87,11 @@
         document.getElementById("passcode-form").style.display = "none";
     }
 
-    // Update passcode display as the user types
-    function updatePasscode(value) {
-        document.getElementById("passcode-display").textContent = value;
-    }
-
     function authenticate() {
         var passcode = document.getElementById("passcode").value;
-        // Encode the user's input using a custom encoding function
-        var encodedPasscode = encodePasscode(passcode);
+        var encodedPasscode = btoa(passcode);
         // Encoded password to match against (you can replace this with any encoded password)
-        var encodedPassword = "Vjou";
+        var encodedPassword = "aWhhdGV0aGlz"; 
         
         if (encodedPasscode === encodedPassword) {
             // If passcode is correct, show the content and top navigation
@@ -111,14 +105,6 @@
             // If passcode is incorrect, show an error message
             alert("Incorrect passcode. Please try again.");
         }
-    }
-
-    // Custom encoding function
-    function encodePasscode(passcode) {
-        // Encode each character's Unicode code point and return the result as a string
-        return passcode.split('').map(function(c) {
-            return String.fromCharCode(c.charCodeAt(0) + 100);
-        }).join('');
     }
 
     // Cache the authentication status throughout the website
