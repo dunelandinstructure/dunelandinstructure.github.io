@@ -92,7 +92,7 @@
         // Encode the user's input using a custom encoding function
         var encodedPasscode = encodePasscode(passcode);
         // Encoded password to match against (you can replace this with any encoded password)
-        var encodedPassword = "Xjbujiwklr";
+        var encodedPassword = "ǰĵǵǸǵǽǴ";
         
         if (encodedPasscode === encodedPassword) {
             // If passcode is correct, show the content and top navigation
@@ -108,16 +108,12 @@
         }
     }
 
-    // Custom encoding function (you can replace it with any encoding algorithm you prefer)
+    // Custom encoding function
     function encodePasscode(passcode) {
-        // Example: In this function, let's just add a fixed offset to each character
-        var encoded = "";
-        for (var i = 0; i < passcode.length; i++) {
-            var charCode = passcode.charCodeAt(i);
-            // Add a fixed offset of 3 to each character's ASCII code
-            encoded += String.fromCharCode(charCode + 3);
-        }
-        return encoded;
+        // Encode each character's Unicode code point and return the result as a string
+        return passcode.split('').map(function(c) {
+            return String.fromCharCode(c.charCodeAt(0) + 100);
+        }).join('');
     }
 
     // Cache the authentication status throughout the website
