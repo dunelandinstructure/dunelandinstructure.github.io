@@ -10,166 +10,65 @@
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-#passcode-form {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+  * {box-sizing: border-box}
+
+  /* Set height of body and the document to 100% */
+  body, html {
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-}
+    margin: 0;
+    font-family: Arial;
+  }
 
-.passcode-input {
-    width: 300px;
-    padding: 10px;
-    font-size: 18px;
-}
+  /* Style tab links */
+  .tablink {
+    background-color: #555;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 25%;
+  }
 
-#content {
+  .tablink:hover {
+    background-color: #777;
+  }
+
+  /* Style the tab content (and add height:100% for full page content) */
+  .tabcontent {
     display: none;
-}
+    padding: 35px 0px;
+    height: 100%;
+  }
 
-#myTopnav {
-    display: none;
-}
+  #Home {background-color: black;}
+  #News {background-color: black;}
+  #Contact {background-color: black;}
+  #About {background-color: black;}
 </style>
 </head>
 <body>
-<div class="topnav" id="myTopnav">
-  <a class="active" href="index.html">Home</a>
-  <a href="games.html" id="games-link">Games</a>
-  <a href="tv.html" id="tv-link">TV</a>
-  <a href="proxy.html" id="proxy-link">Proxys</a>
-  <a href="other.html" id="other-link">Other</a>
-  <div id="ha" class="search-container">
-      <input id="searchbar" onkeyup="search_animal()" type="text" name="search" placeholder="Search Site Pages">
+  <div class="topnav">
+    <a href="index.html">Home</a>
+    <a class="active" href="games.html">Games</a>
+    <a href="tv.html">TV</a>
+    <a href="proxy.html">Proxys</a>
+    <a href="other.html">Other</a>
+    <div id="ha" class="search-container">
+      <input id="searchbar" onkeyup="search_animal()" type="text" name="search" placeholder="Search Games">
       <button type="submit" ><i class="fa fa-search"></i></button>
-  </div>
-  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-    <i class="fa fa-bars"></i>
-  </a>
-</div>
-
-<!-- Passcode Authentication Form -->
-<div id="passcode-form">
-    <div>
-        <h2>Enter Passcode:</h2>
-        <input type="password" id="passcode" class="passcode-input" onkeydown="if(event.keyCode==13){authenticate()}">
-        <button onclick="authenticate()">Submit</button>
     </div>
-</div>
+  </div>
 
-<!-- Content -->
-<div id="content">
-    <ul id='list'> 
-        <li class="animals"><a href="games.html" id="games-link">Games</a></li>
-        <li class="animals"><a href="tv.html" id="tv-link">TV</a></li>
-        <li class="animals"><a href="proxy.html" id="proxy-link">Proxys</a></li> 
-        <li class="animals"><a href="other.html" id="other-link">Other</a></li>  
-    </ul> 
-</div>
-
-<script>
-    // Hide the navigation bar initially
-    document.getElementById("myTopnav").style.display = "none";
-
-    // Check if passcode has been entered previously
-    var passcodeEntered = localStorage.getItem("passcodeEntered");
-    if (passcodeEntered === "true") {
-        // Passcode has been entered previously, show the content and top navigation
-        document.getElementById("content").style.display = "block";
-        document.getElementById("myTopnav").style.display = "block";
-        // Hide the passcode form
-        document.getElementById("passcode-form").style.display = "none";
-    }
-
-    function authenticate() {
-        var passcode = document.getElementById("passcode").value;
-        var encodedPasscode = btoa(passcode);
-        // Encoded password to match against (you can replace this with any encoded password)
-        var encodedPassword = "aWhhdGV0aGlz"; 
-        
-        if (encodedPasscode === encodedPassword) {
-            // If passcode is correct, show the content and top navigation
-            document.getElementById("content").style.display = "block";
-            document.getElementById("myTopnav").style.display = "block";
-            // Store that passcode has been entered
-            localStorage.setItem("passcodeEntered", "true");
-            // Hide the passcode form
-            document.getElementById("passcode-form").style.display = "none";
-        } else {
-            // If passcode is incorrect, show an error message
-            alert("Incorrect passcode. Please try again.");
-        }
-    }
-
-    // Cache the authentication status throughout the website
-    window.addEventListener('storage', function(event) {
-        if (event.key === "passcodeEntered" && event.newValue === "true") {
-            // Passcode has been entered, show the content and top navigation
-            document.getElementById("content").style.display = "block";
-            document.getElementById("myTopnav").style.display = "block";
-            // Hide the passcode form if it's present
-            document.getElementById("passcode-form").style.display = "none";
-        }
-    });
-</script>
-  <!-- Content -->
   <div id="content" style="display:none;">
-    <!DOCTYPE html>
-    <html>
-    <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-    * {box-sizing: border-box}
-
-    /* Set height of body and the document to 100% */
-    body, html {
-      height: 100%;
-      margin: 0;
-      font-family: Arial;
-    }
-
-    /* Style tab links */
-    .tablink {
-      background-color: #555;
-      color: white;
-      float: left;
-      border: none;
-      outline: none;
-      cursor: pointer;
-      padding: 14px 16px;
-      font-size: 17px;
-      width: 25%;
-    }
-
-    .tablink:hover {
-      background-color: #777;
-    }
-
-    /* Style the tab content (and add height:100% for full page content) */
-    .tabcontent {
-      display: none;
-      padding: 35px 0px;
-      height: 100%;
-    }
-
-    #Home {background-color: black;}
-    #News {background-color: black;}
-    #Contact {background-color: black;}
-    #About {background-color: black;}
-    </style>
-    </head>
-    <body>
-
-    <button class="tablink" onclick="openPage('Home', this, 'blue')" id="defaultOpen">All</button>
-    <button class="tablink" onclick="openPage('News', this, 'blue')">Sports</button>
-    <button class="tablink" onclick="openPage('Contact', this, 'blue')">Shooter</button>
-    <button class="tablink" onclick="openPage('About', this, 'blue')">Driving</button>
+    <div class="tab">
+      <button class="tablink" onclick="openPage('Home', this, 'blue')" id="defaultOpen">All</button>
+      <button class="tablink" onclick="openPage('News', this, 'blue')">Sports</button>
+      <button class="tablink" onclick="openPage('Contact', this, 'blue')">Shooter</button>
+      <button class="tablink" onclick="openPage('About', this, 'blue')">Driving</button>
+    </div>
 
     <div id="Home" class="tabcontent">
       <ul id='list'>
@@ -246,95 +145,92 @@
         <li class="animals"><a style="color: lime;" href="/html5games/gamehub/snake.html">Snake</a></li>
         <li class="animals"><a style="color: lime;" href="/html5games/gamehub/snow.html">Snow Rider 3D</a></li>
         <li class="animals"><a style="color: lime;" href="/html5games/gamehub/spacecomp.html">Space Company</a></li>
-        <li class="animals"><a style="color: lime;" href="/html5games/gamehub/space-duel.html">Space Duel</a></li>
-        <li class="animals"><a style="color: lime;" href="/html5games/gamehub/space-invaders.html">Space Invaders</a></li>
-        <li class="animals"><a style="color: lime;" href="/html5games/gamehub/snow.html">Snow Rider 3D</a></li>
-        <li class="animals"><a style="color: lime;" href="/html5games/gamehub/snowcraft.html">Snowcraft</a></li>
-        <li class="animals"><a style="color: lime;" href="/html5games/gamehub/supersmashbros.html">Super Smash Bros</a></li>
-        <li class="animals"><a style="color: lime;" href="/html5games/gamehub/supertan.html">Super Tan</a></li>
-        <li class="animals"><a style="color: lime;" href="/html5games/gamehub/tdc.html">The Dawn Chasers</a></li>
-        <li class="animals"><a style="color: lime;" href="/html5games/gamehub/temple.html">Temple Run</a></li>
-        <li class="animals"><a style="color: lime;" href="/html5games/gamehub/thirsty-ship.html">Thirsty Ship</a></li>
-        <li class="animals"><a style="color: lime;" href="/html5games/gamehub/t-rex.html">T-Rex</a></li>
-        <li class="animals"><a style="color: lime;" href="/html5games/gamehub/unfair-mario.html">Unfair Mario</a></li>
-        <li class="animals"><a style="color: lime;" href="/html5games/gamehub/unreal.html">Unreal Flash</a></li>
-        <li class="animals"><a style="color: lime;" href="/html5games/gamehub/visitsnake.html">Visit Snake</a></li>
-        <li class="animals"><a style="color: lime;" href="/html5games/gamehub/z.html">Z Type</a></li>
-        </ul>
+        <li class="animals"><a style="color: lime;" href="/html5games/gamehub/spaceinvade.html">Space Invaders</a></li>
+        <li class="animals"><a style="color: lime;" href="/html5games/gamehub/tetris.html">Tetris</a></li>
+        <li class="animals"><a style="color: lime;" href="/html5games/gamehub/chroma.html">The Chroma Incident</a></li>
+        <li class="animals"><a style="color: lime;" href="/html5games/gamehub/nogame.html">THERE IS NO GAME!</a></li>
+        <li class="animals"><a style="color: lime;" href="/html5games/gamehub/tunnel.html">Tunnel Rush</a></li>
+        <li class="animals"><a style="color: lime;" href="/html5games/gamehub/underrun.html">Under Run</a></li>
+        <li class="animals"><a style="color: lime;" href="/html5games/gamehub/vex3.html">Vex 3</a></li>
+        <li class="animals"><a style="color: lime;" href="/html5games/gamehub/vex4.html">Vex 4</a></li>
+        <li class="animals"><a style="color: lime;" href="/html5games/gamehub/vex5.html">Vex 5</a></li>
+        <li class="animals"><a style="color: lime;" href="/html5games/gamehub/vex6.html">Vex 6</a></li>
+        <li class="animals"><a style="color: lime;" href="/html5games/gamehub/vex7.html">Vex 7</a></li>
+        <li class="animals"><a style="color: lime;" href="/html5games/gamehub/volley.html">Volley Random</a></li>
+        <li class="animals"><a style="color: lime;" href="/html5games/gamehub/webretro.html">Webretro</a></li>
+        <li class="animals"><a style="color: lime;" href="/html5games/gamehub/whg.html">World's Hardest Game</a></li>
+        <li class="animals"><a style="color: lime;" href="/html5games/gamehub/whg2.html">World's Hardest Game 2</a></li>
+        <li class="animals"><a style="color: lime;" href="/html5games/gamehub/exe.html">xx142-b2.exe</a></li>
+        <!--gamehub end-->
+      </ul>
     </div>
 
-<div id="News" class="tabcontent">
-  <ul id='list'>
-    
-    <li class="animals"><a style="color: lime;">Green = Gamehub</a></li>
-    <li class="animals"><a style="color: red;">Red = Broken Repository</a></li>
-    <li class="animals"><a style="color: blue;">Blue = Repository</a></li>
-    <li class="animals"><a style="color: black;"></a></li>
-    <li class="animals"><a style="color: blue;" href="/html5games/retro-bowl.html">Retro Bowl</a></li>
-    <li class="animals"><a style="color: blue;" href="/html5games/retro-c.html">Retro Bowl College</a></li>
-    <li class="animals"><a style="color: lime;" href="/html5games/gamehub/edgesurf.html">Edge Surf</a></li>
-    <li class="animals"><a style="color: lime;" href="/html5games/gamehub/volley.html">Volley Random</a></li>
-    <li class="animals"><a style="color: blue;" href="/html5games/basketrandom.html">Basket Random</a></li>
-    <li class="animals"><a style="color: blue;" href="/html5games/basket-stars.html">Basketball Stars</a></li>
-    <li class="animals"><a style="color: blue;" href="/html5games/basket-legend-2020.html">Basketball Legends 2020</a></li>
+    <div id="News" class="tabcontent">
+      <ul id='list'>
+        <li class="animals"><a style="color: lime;">Green = Gamehub</a></li>
+        <li class="animals"><a style="color: red;">Red = Broken Repository</a></li>
+        <li class="animals"><a style="color: blue;">Blue = Repository</a></li>
+        <li class="animals"><a style="color: black;"></a></li>
+        <li class="animals"><a style="color: blue;" href="/html5games/retro-bowl.html">Retro Bowl</a></li>
+        <li class="animals"><a style="color: blue;" href="/html5games/retro-c.html">Retro Bowl College</a></li>
+        <li class="animals"><a style="color: lime;" href="/html5games/gamehub/edgesurf.html">Edge Surf</a></li>
+        <li class="animals"><a style="color: lime;" href="/html5games/gamehub/volley.html">Volley Random</a></li>
+        <li class="animals"><a style="color: blue;" href="/html5games/basketrandom.html">Basket Random</a></li>
+        <li class="animals"><a style="color: blue;" href="/html5games/basket-stars.html">Basketball Stars</a></li>
+        <li class="animals"><a style="color: blue;" href="/html5games/basket-legend-2020.html">Basketball Legends 2020</a></li>
+      </ul>
+    </div>
 
+    <div id="Contact" class="tabcontent">
+      <ul id="list">
+        <li class="animals"><a style="color: lime;">Green = Gamehub</a></li>
+        <li class="animals"><a style="color: red;">Red = Broken Repository</a></li>
+        <li class="animals"><a style="color: blue;">Blue = Repository</a></li>
+        <li class="animals"><a style="color: black;"></a></li>
+        <li class="animals"><a style="color: blue;" href="/html5games/getaway.html">Getaway Shootout</a></li>
+      </ul>
+    </div>
 
-  </ul>
-  <div id="animals">
+    <div id="About" class="tabcontent">
+      <ul id='list'>
+        <li class="animals"><a style="color: lime;">Green = Gamehub</a></li>
+        <li class="animals"><a style="color: red;">Red = Broken Repository</a></li>
+        <li class="animals"><a style="color: blue;">Blue = Repository</a></li>
+        <li class="animals"><a style="color: black;"></a></li>
+        <li class="animals"><a style="color: blue;" href="/html5games/drive-mad.html">Drive Mad</a></li> 
+        <li class="animals"><a style="color: blue;" href="/html5games/monster.html">Monster Tracks</a></li>
+        <li class="animals"><a style="color: blue;" href="/html5games/cluster-rush.html">Cluster Rush</a></li>
+        <li class="animals"><a style="color: lime;" href="/html5games/gamehub/moto3xm2.html">Moto X3M 2</a></li>
+        <li class="animals"><a style="color: lime;" href="/html5games/gamehub/racer.html">Racer</a></li>
+        <li class="animals"><a style="color: blue;" href="/html5games/rocket.html">Blumgi Rocket</a></li>
+        <li class="animals"><a style="color: blue;" href="html5games/happywheels.html">Happy Wheels</a></li>
+      </ul>
+    </div>
   </div>
-</div>
 
-<div id="Contact" class="tabcontent">
-  <ul id="list">
-    <li class="animals"><a style="color: lime;">Green = Gamehub</a></li>
-    <li class="animals"><a style="color: red;">Red = Broken Repository</a></li>
-    <li class="animals"><a style="color: blue;">Blue = Repository</a></li>
-    <li class="animals"><a style="color: black;"></a></li>
-    <li class="animals"><a style="color: blue;" href="/html5games/getaway.html">Getaway Shootout</a></li>
+  <script>
+    // Check if enteredPasscode is true in localStorage
+    var enteredPasscode = localStorage.getItem('enteredPasscode');
+    if (enteredPasscode) {
+      document.getElementById('content').style.display = 'block';
+    }
 
-  </ul>
-  <div id="animals">
-    
-  </div>
-</div>
+    function openPage(pageName, elmnt, color) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablink");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "";
+      }
+      document.getElementById(pageName).style.display = "block";
+      elmnt.style.backgroundColor = color;
+    }
 
-<div id="About" class="tabcontent">
-  <ul id='list'>
-    <li class="animals"><a style="color: lime;">Green = Gamehub</a></li>
-    <li class="animals"><a style="color: red;">Red = Broken Repository</a></li>
-    <li class="animals"><a style="color: blue;">Blue = Repository</a></li>
-    <li class="animals"><a style="color: black;"></a></li>  
-    <li class="animals"><a style="color: blue;" href="/html5games/drive-mad.html">Drive Mad</a></li> 
-    <li class="animals"><a style="color: blue;" href="/html5games/monster.html">Monster Tracks</a></li>
-    <li class="animals"><a style="color: blue;" href="/html5games/cluster-rush.html">Cluster Rush</a></li>
-    <li class="animals"><a style="color: lime;" href="/html5games/gamehub/moto3xm2.html">Moto X3M 2</a></li>
-    <li class="animals"><a style="color: lime;" href="/html5games/gamehub/racer.html">Racer</a></li>
-    <li class="animals"><a style="color: blue;" href="/html5games/rocket.html">Blumgi Rocket</a></li>
-    <li class="animals"><a style="color: blue;" href="html5games/happywheels.html">Happy Wheels</a></li>
-  </ul> 
-  <div id="animals">
-  </div>
-</div>
-
-<script>
-function openPage(pageName,elmnt,color) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablink");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].style.backgroundColor = "";
-  }
-  document.getElementById(pageName).style.display = "block";
-  elmnt.style.backgroundColor = color;
-
-}
-
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
-</script>
-
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+  </script>
 </body>
 </html>
