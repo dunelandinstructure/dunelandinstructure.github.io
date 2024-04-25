@@ -29,15 +29,56 @@
     </div>
   </div>
 
-  <!-- Passcode Authentication Form -->
-  <div id="passcode-form">
-      <div>
-          <h2>Enter Passcode:</h2>
-          <input type="password" id="passcode" class="passcode-input" oninput="showPassword()">
-          <button onclick="authenticate()">Submit</button>
-      </div>
-  </div>
+<!-- Passcode Authentication Form -->
+<div id="passcode-form">
+    <div>
+        <h2>Enter Passcode:</h2>
+        <input type="password" id="passcode" class="passcode-input" onkeydown="if(event.keyCode==13){authenticate()}">
+        <button onclick="authenticate()">Submit</button>
+    </div>
+</div>
 
+<script>
+    // Hide the navigation bar initially
+    document.getElementById("myTopnav").style.display = "none";
+
+    // Check if passcode has been entered previously
+    var passcodeEntered = localStorage.getItem("passcodeEntered");
+    if (passcodeEntered === "true") {
+        // Passcode has been entered previously, show the content and top navigation
+        document.getElementById("content").style.display = "block";
+        document.getElementById("myTopnav").style.display = "block";
+        // Hide the passcode form
+        document.getElementById("passcode-form").style.display = "none";
+    }
+
+    function authenticate() {
+        var passcode = document.getElementById("passcode").value;
+        if (passcode === "aWhhdGV0aGlz") {
+            // If passcode is correct, show the content and top navigation
+            document.getElementById("content").style.display = "block";
+            document.getElementById("myTopnav").style.display = "block";
+            // Store that passcode has been entered
+            localStorage.setItem("passcodeEntered", "true");
+            // Hide the passcode form
+            document.getElementById("passcode-form").style.display = "none";
+        } else {
+            // If passcode is incorrect, show an error message
+            alert("Incorrect passcode. Please try again.");
+        }
+    }
+
+    // Cache the authentication status throughout the website
+    window.addEventListener('storage', function(event) {
+        if (event.key === "passcodeEntered" && event.newValue === "true") {
+            // Passcode has been entered, show the content and top navigation
+            document.getElementById("content").style.display = "block";
+            document.getElementById("myTopnav").style.display = "block";
+            // Hide the passcode form if it's present
+            document.getElementById("passcode-form").style.display = "none";
+        }
+    });
+</script>
   <!-- Content -->
   <div id="content" style="display:none;">
     <!DOCTYPE html>
