@@ -89,7 +89,12 @@
 
     function authenticate() {
         var passcode = document.getElementById("passcode").value;
-        if (passcode === "calebisgay") {
+        // Encode the user's input using a custom encoding function
+        var encodedPasscode = encodePasscode(passcode);
+        // Encoded password to match against (you can replace this with any encoded password)
+        var encodedPassword = "Xjbujiwklr";
+        
+        if (encodedPasscode === encodedPassword) {
             // If passcode is correct, show the content and top navigation
             document.getElementById("content").style.display = "block";
             document.getElementById("myTopnav").style.display = "block";
@@ -101,6 +106,18 @@
             // If passcode is incorrect, show an error message
             alert("Incorrect passcode. Please try again.");
         }
+    }
+
+    // Custom encoding function (you can replace it with any encoding algorithm you prefer)
+    function encodePasscode(passcode) {
+        // Example: In this function, let's just add a fixed offset to each character
+        var encoded = "";
+        for (var i = 0; i < passcode.length; i++) {
+            var charCode = passcode.charCodeAt(i);
+            // Add a fixed offset of 3 to each character's ASCII code
+            encoded += String.fromCharCode(charCode + 3);
+        }
+        return encoded;
     }
 
     // Cache the authentication status throughout the website
