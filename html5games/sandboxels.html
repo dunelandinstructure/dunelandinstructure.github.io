@@ -31,15 +31,15 @@
     <a href="/proxy.html">Proxys</a>
     <a href="/other.html">Other</a>
   </div>
- 
-  <iframe frameborder="0" id="gameFrame"></iframe>
+
+  <section id="gameContent"></section>
 
   <script>
     // Check if the localStorage variable 'passcodeEntered' is set to true
     var passcodeEntered = localStorage.getItem('passcodeEntered');
 
-    // Set the srcdoc attribute of the iframe based on passcodeEntered value
-    document.getElementById('gameFrame').srcdoc = `
+    // Set the content of the game based on passcodeEntered value
+    document.getElementById('gameContent').innerHTML = `
       <style>
         #play {
           color: blue;
@@ -50,7 +50,7 @@
           display: ${passcodeEntered === 'true' ? 'block' : 'none'};
         }
       </style>
-      <a id='play' href='/sandboxels' onclick="window.location.href='/sandboxels'"><h1>PLAY</h1></a>`;
+      <a id='play' href='/sandboxels'><h1>PLAY</h1></a>`;
   </script>
 </body>
 </html>
