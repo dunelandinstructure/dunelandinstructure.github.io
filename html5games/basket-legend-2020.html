@@ -39,28 +39,15 @@
     <a href="/other.html">Other</a>
   </div>
  
-  <iframe frameborder="0" id="gameFrame"></iframe>
+  <iframe frameborder="0" id="gameFrame" srcdoc="<a id='play' href='/BasketballLegendsUnblocked.github.io'><h1>PLAY</h1></a>"></iframe>
 
   <script>
     // Check if the localStorage variable 'passcodeEntered' is set to true
     var passcodeEntered = localStorage.getItem('passcodeEntered');
 
-    // If passcodeEntered is true, display the "PLAY" button, otherwise hide it
-    if (passcodeEntered === 'true') {
-      document.getElementById('gameFrame').srcdoc = `
-        <style>
-          #play {
-            display: block; /* Show the button */
-          }
-        </style>
-        <a id='play' href='/BasketballLegendsUnblocked.github.io'><h1>PLAY</h1></a>`;
-    } else {
-      document.getElementById('gameFrame').srcdoc = `
-        <style>
-          #play {
-            display: none; /* Hide the button */
-          }
-        </style>`;
+    // If passcodeEntered is not true, hide the "PLAY" button
+    if (passcodeEntered !== 'true') {
+      document.getElementById('play').style.display = 'none';
     }
   </script>
 </body>
