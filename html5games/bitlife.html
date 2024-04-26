@@ -38,31 +38,19 @@
     // Check if the localStorage variable 'passcodeEntered' is set to true
     var passcodeEntered = localStorage.getItem('passcodeEntered');
 
-    // Create a function to set the display of the "PLAY" button
-    function setPlayButtonDisplay() {
-      var playButton = document.getElementById('play');
-      if (passcodeEntered === 'true') {
-        playButton.style.display = 'block';
-      } else {
-        playButton.style.display = 'none';
-      }
-    }
-
-    // Set the srcdoc attribute of the iframe with the button and script
+    // Set the srcdoc attribute of the iframe based on passcodeEntered value
     document.getElementById('gameFrame').srcdoc = `
       <style>
-        #play{
+        #play {
           color: blue;
           text-align: center;
           text-decoration: none;
           font-family: 'arial';
           font-size: 20px;
-          display: none;
+          display: ${passcodeEntered === 'true' ? 'block' : 'none'};
         }
       </style>
-      <a id='play' href='/bitlife'><h1>PLAY</h1></a>
-      <script>(${setPlayButtonDisplay.toString()})()</script>
-    `;
+      <a id='play' href='/bitlife'><h1>PLAY</h1></a>`;
   </script>
 </body>
 </html>
