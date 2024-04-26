@@ -32,28 +32,37 @@
     <a href="/other.html">Other</a>
   </div>
  
-  <iframe frameborder="0" id="gameFrame" srcdoc="
-  <style>
-    #play{
-      color: blue;
-      text-align: center;
-      text-decoration: none;
-      font-family: 'arial';
-      font-size: 20px;
-      display: none;
-    }
-  </style>
+  <iframe frameborder="0" id="gameFrame"></iframe>
+
   <script>
     // Check if the localStorage variable 'passcodeEntered' is set to true
     var passcodeEntered = localStorage.getItem('passcodeEntered');
 
-    // If passcodeEntered is true, display the PLAY button
-    if (passcodeEntered === 'true') {
-      document.getElementById('play').style.display = 'block';
-    } else {
-      document.getElementById('play').style.display = 'none';
+    // Create a function to set the display of the "PLAY" button
+    function setPlayButtonDisplay() {
+      var playButton = document.getElementById('play');
+      if (passcodeEntered === 'true') {
+        playButton.style.display = 'block';
+      } else {
+        playButton.style.display = 'none';
+      }
     }
+
+    // Set the srcdoc attribute of the iframe with the button and script
+    document.getElementById('gameFrame').srcdoc = `
+      <style>
+        #play{
+          color: blue;
+          text-align: center;
+          text-decoration: none;
+          font-family: 'arial';
+          font-size: 20px;
+          display: none;
+        }
+      </style>
+      <a id='play' href='/bitlife'><h1>PLAY</h1></a>
+      <script>(${setPlayButtonDisplay.toString()})()</script>
+    `;
   </script>
-  <a id='play' href='/bitlife'><h1>PLAY</h1></a>"></iframe>
 </body>
 </html>
